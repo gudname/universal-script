@@ -1,0 +1,19 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Universal Hub", "Sentinel")
+local Tab = Window:NewTab("All")
+local ESection = Tab:NewSection("Things")
+ESection:NewButton("FPS boost", "boostes fps", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/gudname/fps-boost/main/fps", true))()
+end)
+ESection:NewSlider("speed", "speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+ESection:NewSlider("jump", "jump", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+ESection:NewSlider("fov", "fov", 120, 70, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Workspace.Camera.FieldOfView = s
+end)
+ESection:NewKeybind("e", "e", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
